@@ -1,0 +1,23 @@
+.gold {
+    color: gold;
+}
+
+.white {
+    color: white;
+}
+
+.blue {
+    color: blue;
+}
+
+.alert {
+    color: grey;
+}
+
+    p {
+        color: white;
+    }
+
+    h6 {
+        color: white;
+    }

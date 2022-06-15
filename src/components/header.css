@@ -1,0 +1,7 @@
+.header {
+    width: 90%;
+}
+
+h3::first-letter{
+    color: #dc3545
+}

@@ -1,0 +1,21 @@
+
+.movieDetail {
+    width: 70%;
+    
+}
+
+
+
+.card {
+    
+    max-width: 50%;
+    margin: 0px;
+    padding: 0px;
+    background-color: RGBA(53,53,53,0.4);
+  
+   
+}
+
+.card img:hover {
+    filter: grayscale(35%)
+}
