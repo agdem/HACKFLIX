@@ -2,8 +2,8 @@ import "./navbar.css";
 
 function Navbar(props) {
   return (
-    <div className="d-flex justify-content-center">
-      <nav className="navbar navbar-expand-lg navbar-light">
+    <div className="d-flex justify-content-center sticky-top bg-black">
+      <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid p-0">
           <a
             style={{ fontFamily: "PT Sans" }}

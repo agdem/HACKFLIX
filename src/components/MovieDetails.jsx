@@ -47,7 +47,7 @@ function MovieDetails(props) {
             <div className="card bg-dark border border-secondary ">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
-                className="card-img-top rounded-0 border-bottom"
+                className="card-img-top rounded-0 img-fluid"
                 alt="..."
               />
               <div className="card-body">
