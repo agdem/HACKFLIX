@@ -5,11 +5,7 @@ function Navbar(props) {
     <div className="d-flex justify-content-center sticky-top bg-black">
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid p-0">
-          <a
-            style={{ fontFamily: "PT Sans" }}
-            className="navbar-brand text-danger ms-5 fs-1"
-            href="/"
-          >
+          <a className="navbar-brand text-danger ms-5 fs-1" href="/">
             Hackflix
           </a>
           <button

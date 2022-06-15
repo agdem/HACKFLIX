@@ -12,12 +12,7 @@ function Header() {
   return (
     <>
       {" "}
-      <h3
-        style={{ fontFamily: "PT Sans" }}
-        className="text-start text-white mt-3 ms-5 fs-3"
-      >
-        Próximamente
-      </h3>
+      <h3 className="text-start text-white mt-3 ms-5 fs-3">Próximamente</h3>
       <div className="d-flex justify-content-center">
         <div className="header">
           <div>
