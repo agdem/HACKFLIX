@@ -44,36 +44,34 @@ function Header() {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-100 border border-light img-fluid"
+                className="d-block w-100 img-fluid"
                 src="/img/rampage.jpeg"
                 alt="Second slide"
               />
 
               <Carousel.Caption>
-                <h5>Iron Man</h5>
+                <h5>Rampage</h5>
                 <p>
-                  A billionaire industrialist and genius inventor, Tony Stark
-                  (Robert Downey Jr.), is conducting weapons tests overseas, but
-                  terrorists kidnap him to force him to build a devastating
-                  weapon. Instead, he builds an armored suit and upends his
-                  captors. Returning to America, Stark refines the suit and uses
-                  it to combat crime and terrorism.
+                  When three different animals become infected with a dangerous
+                  pathogen, a primatologist and a geneticist team up to stop
+                  them from destroying Chicago.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-100 border border-dark img-fluid"
-                src="/img/soNic.webp"
+                className="d-block w-100 img-fluid"
+                src="/img/tomb-raider.jpeg"
                 alt="Third slide"
               />
 
               <Carousel.Caption>
-                <h5>Sonic The Movie</h5>
+                <h5>Tomb Raider 2</h5>
                 <p>
-                  After discovering a small, blue, fast hedgehog, a small-town
-                  police officer must help him defeat an evil genius who wants
-                  to do experiments on him.
+                  Lara Croft (Alicia Vikander), the fiercely independent
+                  daughter of a missing adventurer, must push herself beyond her
+                  limits when she discovers the island where her father, Lord
+                  Richard Croft (Dominic West) disappeared.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
