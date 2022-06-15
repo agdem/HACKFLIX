@@ -45,22 +45,6 @@ function Header() {
             <Carousel.Item>
               <img
                 className="d-block w-100 img-fluid"
-                src="/img/rampage.jpeg"
-                alt="Second slide"
-              />
-
-              <Carousel.Caption>
-                <h5>Rampage</h5>
-                <p>
-                  When three different animals become infected with a dangerous
-                  pathogen, a primatologist and a geneticist team up to stop
-                  them from destroying Chicago.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 img-fluid"
                 src="/img/tomb-raider.jpeg"
                 alt="Third slide"
               />
@@ -72,6 +56,22 @@ function Header() {
                   daughter of a missing adventurer, must push herself beyond her
                   limits when she discovers the island where her father, Lord
                   Richard Croft (Dominic West) disappeared.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100 img-fluid"
+                src="/img/rampage.jpeg"
+                alt="Second slide"
+              />
+
+              <Carousel.Caption>
+                <h5>Rampage</h5>
+                <p>
+                  When three different animals become infected with a dangerous
+                  pathogen, a primatologist and a geneticist team up to stop
+                  them from destroying Chicago.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
