@@ -45,7 +45,7 @@ function Header() {
             <Carousel.Item>
               <img
                 className="d-block w-100 border border-light img-fluid"
-                src="/img/IronMan.jpeg"
+                src="/img/rampage.jpeg"
                 alt="Second slide"
               />
 
