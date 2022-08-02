@@ -35,7 +35,6 @@ function MovieList({
       setAllMovies([...allMovies, ...response.data.results]);
     };
     getMovies();
-    console.log(allMovies);
   }, [page]);
 
   // filter

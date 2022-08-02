@@ -8,12 +8,7 @@ function Filter({ stars, setStars }) {
     if (starNumber !== stars) {
       setStars(starNumber);
       setColor("gold");
-      console.log("entra al if");
-      console.log(color);
     } else {
-      console.log("entra al else");
-      console.log(color);
-
       if (color === "gold") {
         setColor("white");
         setStars(0);

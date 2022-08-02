@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -18,7 +18,6 @@ function App() {
   const [stars, setStars] = useState(0);
   const [show, setShow] = useState(false);
   const [modalMovie, setModalMovie] = useState();
-  console.log(navigator.onLine);
 
   return (
     <div className="App">

@@ -11,7 +11,6 @@ function MovieDetails(props) {
   const params = useParams();
 
   useEffect(() => {
-    console.log(params.id);
     const getMovie = async () => {
       const response = await axios
         .get(
@@ -23,9 +22,7 @@ function MovieDetails(props) {
             // that falls out of the range of 2xx
             setMovieExist(false);
           }
-          console.log(error.config);
         });
-      console.log(response);
 
       setMovieDetails(response.data);
     };
@@ -71,7 +68,7 @@ function MovieDetails(props) {
                       <span className="text-white ms-2">
                         {movieDetails.vote_average}
                       </span>{" "}
-                      <i class="fa-solid fa-star gold"></i>
+                      <i className="fa-solid fa-star gold"></i>
                     </span>
                   </div>
                   <div>

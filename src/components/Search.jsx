@@ -5,12 +5,11 @@ import Movie from "./Movie";
 
 function Search(props) {
   const [searchedMovies, setSearchedMovies] = useState([]);
-  const [searchedTitle, setSearchedTitle] = useState(null);
+  const [searchedTitle, setSearchedTitle] = useState(undefined);
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    console.log(searchedTitle);
-    if (searchedTitle !== "" && searchedTitle !== null) {
+    if (searchedTitle !== "" && searchedTitle !== undefined) {
       const getMovies = async () => {
         const response = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=621e30b5dbb7b35d10faf840dfe1c60f&query=${searchedTitle}`
@@ -33,7 +32,10 @@ function Search(props) {
     <div className="d-flex justify-content-center mt-5">
       <div className="searchBy">
         <div className="mb-5 d-flex flex-column">
-          <label for="searchMovie" className="form-label text-white text-start">
+          <label
+            htmlFor="searchMovie"
+            className="form-label text-white text-start"
+          >
             Ingresá el nombre de la película
           </label>
           <input
