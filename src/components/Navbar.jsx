@@ -5,10 +5,10 @@ function Navbar(props) {
   return (
     <div className="d-flex justify-content-center sticky-top bg-black">
       <nav className="navbar navbar-expand-lg navbar-light ">
-        <div className="container-fluid p-0">
+        <div className="container p-0">
           <Link
             to={"/"}
-            className="text-decoration-none text-danger navbar-brand ms-5 fs-1"
+            className="text-decoration-none text-danger navbar-brand fs-1 ps-0"
           >
             Hackflix
           </Link>
@@ -17,14 +17,14 @@ function Navbar(props) {
             className="navbar-toggler bg-secondary"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="collapse navbar-collapse" id="navbarNav">
             <div className="navbar-nav">
               <Link
                 to={"/buscar"}

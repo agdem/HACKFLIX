@@ -11,8 +11,9 @@ function Header() {
 
   return (
     <>
-      {" "}
-      <h3 className="text-start text-white mt-5 ms-5 fs-3">Próximamente</h3>
+      <div className="container mt-5">
+        <h3 className="text-start text-white  fs-3">Próximamente</h3>
+      </div>
       <div className="d-flex justify-content-center">
         <div className="header">
           <div>
