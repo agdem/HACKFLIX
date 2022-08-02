@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./movieDetails.css";
 import { TailSpin } from "react-loader-spinner";
+import Card from "react-bootstrap/Card";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function MovieDetails(props) {
-  const [movieDetails, setMovieDetails] = useState();
-  const [loader, setLoader] = useState(true);
+  const [movieDetails, setMovieDetails] = useState(undefined);
   const [movieExist, setMovieExist] = useState(true);
+  const [genre, setGenre] = useState();
   const params = useParams();
 
   useEffect(() => {
@@ -25,64 +28,107 @@ function MovieDetails(props) {
         });
 
       setMovieDetails(response.data);
+      setGenre(response.data.genres[0].id);
     };
+
     getMovie();
-    setLoader(false);
   }, []);
+
+  useEffect(() => {
+    const getSimilarMovies = async () => {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=621e30b5dbb7b35d10faf840dfe1c60f&with_genres=${genre}`
+      );
+
+      setGenre([
+        response.data.results[1],
+        response.data.results[2],
+        response.data.results[3],
+        response.data.results[4],
+        response.data.results[5],
+        response.data.results[6],
+      ]);
+    };
+    getSimilarMovies();
+  });
+
+  // console.log(genre);
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
 
   return (
     <>
-      {loader && (
+      {movieDetails ? (
+        <div>
+          <div className="container movie-details d-flex justify-content-center align-items-center">
+            <Card className="bg-dark text-white">
+              <Card.Img
+                className="movie-image"
+                src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
+                alt="Card image"
+              />
+
+              <Card.ImgOverlay className="d-flex flex-column justify-content-end align-items-start overlay">
+                <Card.Title className="fw-bold title">
+                  {movieDetails.title}
+                </Card.Title>
+
+                <Card.Text className="text-start">
+                  {movieDetails.overview}
+                </Card.Text>
+                <Card.Text>
+                  Release Date : {movieDetails.release_date}
+                </Card.Text>
+                <Card.Text>
+                  IMBD Rating : {movieDetails.vote_average}{" "}
+                  <i className="fa-solid fa-star gold"></i>
+                </Card.Text>
+                <Card.Text>Duration : {movieDetails.runtime} min</Card.Text>
+              </Card.ImgOverlay>
+            </Card>
+          </div>
+          {/* {genre && (
+            <div className="container">
+              <h5 className="text-start text-secondary">
+                People who watched this movie also searched for :
+              </h5>
+              <Carousel responsive={responsive} infinite={true}>
+                {genre.map((movie) => {
+                  return (
+                    <div key={movie.id}>
+                      <img
+                        className="featuredImg mb-4"
+                        src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                        alt="First slide"
+                      />
+                    </div>
+                  );
+                })}
+              </Carousel>
+            </div>
+          )} */}
+        </div>
+      ) : (
         <div className="d-flex justify-content-center">
           <TailSpin height="100" width="100" color="grey" ariaLabel="loading" />
-        </div>
-      )}
-
-      {movieDetails && (
-        <div className="d-flex justify-content-center mt-4">
-          <div className="movieDetail d-flex justify-content-center mt-3">
-            <div className="card bg-dark border border-secondary ">
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
-                className="card-img-top rounded-0 img-fluid"
-                alt="..."
-              />
-              <div className="card-body">
-                <h4 className="card-title text-danger text-start">
-                  {movieDetails.title}
-                </h4>
-                <hr className="text-muted" />
-                <p className="card-text text-start">{movieDetails.overview}</p>
-                <div className="d-flex flex-column align-items-start">
-                  <div>
-                    <span className="text-muted">
-                      Release Date :
-                      <span className="text-white ms-2">
-                        {movieDetails.release_date}
-                      </span>
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-muted">
-                      IMBD Rating :
-                      <span className="text-white ms-2">
-                        {movieDetails.vote_average}
-                      </span>{" "}
-                      <i className="fa-solid fa-star gold"></i>
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-muted">
-                      Duration :
-                      <span className="text-white ms-2">
-                        {movieDetails.runtime} min
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       )}
 

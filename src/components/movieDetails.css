@@ -1,21 +1,34 @@
 
-.movieDetail {
-    width: 70%;
-    
+
+.movie-details {
+    min-height: 70vh;
 }
 
 
 
-.card {
-    
-    max-width: 50%;
-    margin: 0px;
-    padding: 0px;
-    background-color: RGBA(53,53,53,0.4);
-  
-   
+.movie-image {
+    height: 30rem;
+    opacity: 0.4;
 }
 
-.card img:hover {
-    filter: grayscale(35%)
+.title {
+    font-size: 2rem;
+}
+
+@media (max-width: 620px) {
+    .movie-image {
+        height: 20rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .overlay {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 620px) {
+    .title {
+        font-size: 12px;
+    }
 }
