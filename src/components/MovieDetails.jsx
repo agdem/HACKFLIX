@@ -10,7 +10,8 @@ import "react-multi-carousel/lib/styles.css";
 function MovieDetails(props) {
   const [movieDetails, setMovieDetails] = useState(undefined);
   const [movieExist, setMovieExist] = useState(true);
-  const [genre, setGenre] = useState();
+  const [genre, setGenre] = useState(undefined);
+  const [otherMovies, setOtherMovies] = useState(undefined);
   const params = useParams();
 
   useEffect(() => {
@@ -33,26 +34,26 @@ function MovieDetails(props) {
 
     getMovie();
   }, []);
-
+  console.log(movieDetails);
   useEffect(() => {
-    const getSimilarMovies = async () => {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=621e30b5dbb7b35d10faf840dfe1c60f&with_genres=${genre}`
+    const getOtherMovies = async () => {
+      const responseOtherMovies = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=621e30b5dbb7b35d10faf840dfe1c60f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=100&with_genres=${genre}`
       );
 
-      setGenre([
-        response.data.results[1],
-        response.data.results[2],
-        response.data.results[3],
-        response.data.results[4],
-        response.data.results[5],
-        response.data.results[6],
+      setOtherMovies([
+        responseOtherMovies.data.results[5],
+        responseOtherMovies.data.results[6],
+        responseOtherMovies.data.results[7],
+        responseOtherMovies.data.results[8],
+        responseOtherMovies.data.results[9],
+        responseOtherMovies.data.results[10],
+        responseOtherMovies.data.results[11],
+        responseOtherMovies.data.results[12],
       ]);
     };
-    getSimilarMovies();
-  });
-
-  // console.log(genre);
+    getOtherMovies();
+  }, [movieDetails]);
 
   const responsive = {
     superLargeDesktop: {
@@ -105,30 +106,32 @@ function MovieDetails(props) {
               </Card.ImgOverlay>
             </Card>
           </div>
-          {/* {genre && (
-            <div className="container">
-              <h5 className="text-start text-secondary">
-                People who watched this movie also searched for :
-              </h5>
-              <Carousel responsive={responsive} infinite={true}>
-                {genre.map((movie) => {
-                  return (
-                    <div key={movie.id}>
-                      <img
-                        className="featuredImg mb-4"
-                        src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                        alt="First slide"
-                      />
-                    </div>
-                  );
-                })}
-              </Carousel>
-            </div>
-          )} */}
         </div>
       ) : (
         <div className="d-flex justify-content-center">
           <TailSpin height="100" width="100" color="grey" ariaLabel="loading" />
+        </div>
+      )}
+      {otherMovies && (
+        <div className="container">
+          <h5 className="text-start text-white mb-3">
+            People who watched this movie also searched for :
+          </h5>
+          <hr className="text-muted mb-5" />
+          <Carousel responsive={responsive} infinite={true}>
+            {otherMovies.map((movie) => {
+              return (
+                <div className="mb-3" key={movie.id}>
+                  <img
+                    className="featuredImg mb-4"
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt="First slide"
+                  />
+                </div>
+              );
+            })}
+          </Carousel>
+          <hr className="text-muted mb-5" />
         </div>
       )}
 
