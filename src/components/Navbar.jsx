@@ -3,7 +3,7 @@ import "./navbar.css";
 
 function Navbar(props) {
   return (
-    <div className="d-flex justify-content-center sticky-top bg-black">
+    <div className="container sticky-top bg-black">
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container p-0">
           <Link

@@ -6,6 +6,7 @@ import { TailSpin } from "react-loader-spinner";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 
 function MovieDetails(props) {
   const [movieDetails, setMovieDetails] = useState(undefined);
@@ -33,8 +34,8 @@ function MovieDetails(props) {
     };
 
     getMovie();
-  }, []);
-  console.log(movieDetails);
+  }, [movieDetails]);
+
   useEffect(() => {
     const getOtherMovies = async () => {
       const responseOtherMovies = await axios.get(
@@ -113,8 +114,8 @@ function MovieDetails(props) {
         </div>
       )}
       {otherMovies && (
-        <div className="container">
-          <h5 className="text-start text-white mb-3">
+        <div className="container d-flex flex-column">
+          <h5 className="text-start text-white mb-5">
             People who watched this movie also searched for :
           </h5>
           <hr className="text-muted mb-5" />
@@ -122,11 +123,13 @@ function MovieDetails(props) {
             {otherMovies.map((movie) => {
               return (
                 <div className="mb-3" key={movie.id}>
-                  <img
-                    className="featuredImg mb-4"
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    alt="First slide"
-                  />
+                  <Link to={`/pelicula/${movie.id}`}>
+                    <img
+                      className="featuredImg mb-4 other-movies"
+                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                      alt="First slide"
+                    />
+                  </Link>
                 </div>
               );
             })}

@@ -11,14 +11,12 @@ function Header() {
 
   return (
     <>
-      <div className="container mt-5">
+      <div className="mt-5 mb-5">
         <h3 className="text-start text-white  fs-3">Próximamente</h3>
       </div>
+      <hr className="text-muted mb-5" />
       <div className="d-flex justify-content-center">
         <div className="header">
-          <div>
-            <h4 className="text-start text-white navbar-light navbar-nav nav-link"></h4>
-          </div>
           <Carousel
             className="mb-5"
             activeIndex={index}
@@ -74,6 +72,7 @@ function Header() {
           </Carousel>
         </div>
       </div>
+      <hr className="text-muted" />
     </>
   );
 }

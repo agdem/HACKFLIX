@@ -4,7 +4,7 @@ import MovieList from "./MovieList";
 
 function Home({ stars, show, setShow, setModalMovie, modalMovie, setStars }) {
   return (
-    <div className="d-flex justify-content-center">
+    <div className="container">
       {" "}
       <div className="home">
         <Header />

@@ -1,13 +1,11 @@
 import "./movie.css";
-import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Movie({ movie, setShow, setModalMovie, modalMovie, show }) {
   return (
     <div className="row">
-      <div className="movie col-sm-6 col-md-4 col-lg-2 m-2">
+      <div className="movie col-sm-6 col-md-4 col-lg-2 m-1">
         <Link to={`../pelicula/${movie.id}`}>
           <img
             className="movieImage"
