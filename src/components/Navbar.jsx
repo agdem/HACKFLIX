@@ -4,7 +4,7 @@ import "./navbar.css";
 function Navbar(props) {
   return (
     <div className="container sticky-top bg-black">
-      <nav className="navbar navbar-expand-lg navbar-light ">
+      <nav className="navbar navbar-expand-lg navbar-light container">
         <div className="container p-0">
           <Link
             to={"/"}
@@ -14,7 +14,7 @@ function Navbar(props) {
           </Link>
 
           <button
-            className="navbar-toggler bg-secondary"
+            className="navbar-toggler bg-secondary float-right"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
