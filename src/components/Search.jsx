@@ -5,11 +5,11 @@ import Movie from "./Movie";
 
 function Search(props) {
   const [searchedMovies, setSearchedMovies] = useState([]);
-  const [searchedTitle, setSearchedTitle] = useState(undefined);
+  const [searchedTitle, setSearchedTitle] = useState(null);
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    if (searchedTitle !== "" && searchedTitle !== undefined) {
+    if (searchedTitle !== "" && searchedTitle !== null) {
       const getMovies = async () => {
         const response = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=621e30b5dbb7b35d10faf840dfe1c60f&query=${searchedTitle}`
