@@ -115,7 +115,7 @@ function MovieDetails(props) {
       )}
       {otherMovies && (
         <div className="container d-flex flex-column">
-          <h5 className="text-start text-white mb-5">
+          <h5 className="text-start text-white mb-3 mt-3">
             People who watched this movie also searched for :
           </h5>
           <hr className="text-muted mb-5" />
