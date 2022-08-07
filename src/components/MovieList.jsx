@@ -59,7 +59,7 @@ function MovieList({
             <Filter stars={stars} setStars={setStars} />
           </div>
 
-          <div className="container d-flex flex-wrap justify-content-center">
+          <div className="container list d-flex flex-wrap justify-content-center">
             {ratedMovies.map((movie) => (
               <Movie
                 show={show}

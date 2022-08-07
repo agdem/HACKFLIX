@@ -12,6 +12,8 @@ import Search from "./components/Search";
 import HomePagination from "./components/HomePagination";
 import MovieRedirect from "./components/MovieRedirect";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
@@ -21,44 +23,47 @@ function App() {
 
   return (
     <div className="App">
+      <ScrollToTopButton />
+
       <div className="cont">
         <Navbar />
+        <ScrollToTop>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  stars={stars}
+                  setStars={setStars}
+                  show={show}
+                  setShow={setShow}
+                  setModalMovie={setModalMovie}
+                  modalMovie={modalMovie}
+                />
+              }
+            />
+            <Route
+              path="/paginacion"
+              element={
+                <HomePagination
+                  stars={stars}
+                  setStars={setStars}
+                  show={show}
+                  setShow={setShow}
+                  setModalMovie={setModalMovie}
+                  modalMovie={modalMovie}
+                />
+              }
+            />
+            <Route path="/sobre-nosotros" element={<About />} />
+            <Route path="/contacto" element={<Contact />} />
+            <Route path="/buscar" element={<Search />} />
+            <Route path="/pelicula/:id" element={<MovieDetails />} />
+            <Route path="/movie/:id" element={<MovieRedirect />} />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                stars={stars}
-                setStars={setStars}
-                show={show}
-                setShow={setShow}
-                setModalMovie={setModalMovie}
-                modalMovie={modalMovie}
-              />
-            }
-          />
-          <Route
-            path="/paginacion"
-            element={
-              <HomePagination
-                stars={stars}
-                setStars={setStars}
-                show={show}
-                setShow={setShow}
-                setModalMovie={setModalMovie}
-                modalMovie={modalMovie}
-              />
-            }
-          />
-          <Route path="/sobre-nosotros" element={<About />} />
-          <Route path="/contacto" element={<Contact />} />
-          <Route path="/buscar" element={<Search />} />
-          <Route path="/pelicula/:id" element={<MovieDetails />} />
-          <Route path="/movie/:id" element={<MovieRedirect />} />
-
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
+        </ScrollToTop>
       </div>
       <Footer />
       {/* <MovieModal setShow={setShow} show={show} modalMovie={modalMovie} /> */}
