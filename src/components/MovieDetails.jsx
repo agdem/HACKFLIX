@@ -80,10 +80,10 @@ function MovieDetails(props) {
     <>
       {movieDetails ? (
         <div>
-          <div className="container movie-details d-flex justify-content-center align-items-center">
-            <Card className="bg-dark text-white">
+          <div className=" container movie-details d-flex justify-content-center align-items-center">
+            <Card className="bg-dark movie-card text-white  rounded-5">
               <Card.Img
-                className="movie-image"
+                className="movie-image  rounded-5"
                 src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
                 alt="Card image"
               />
